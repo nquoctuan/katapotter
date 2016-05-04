@@ -11,7 +11,7 @@ namespace KataPotter.UnitTests
 
         internal decimal CalculateCost(List<Order> order)
         {
-            throw new NotImplementedException();
+            return 0;
         }
     }
 }

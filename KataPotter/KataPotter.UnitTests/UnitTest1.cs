@@ -23,5 +23,20 @@ namespace KataPotter.UnitTests
             //assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void Test_Buy_1_Book_Total_Cost_Should_Be_8()
+        {
+            var target = new OrderService();
+            var order = new List<Order>
+            {
+                new Order { BookId = 1, Name = "Harry1" }
+            };
+
+            decimal actual = target.CalculateCost(order);
+            decimal expected = 8;
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
