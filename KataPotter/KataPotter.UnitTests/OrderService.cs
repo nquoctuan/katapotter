@@ -13,7 +13,7 @@ namespace KataPotter.UnitTests
         internal decimal CalculateCost(List<Order> order)
         {
             if (order.Count > 0)
-                return 8;
+                return order.Sum(x => x.Price);
 
             return 0;
         }
