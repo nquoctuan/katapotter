@@ -98,9 +98,46 @@ namespace KataPotter.UnitTests
             };
 
             decimal actual = target.CalculateCost(order);
-            decimal expected = 15.2m;
+            decimal expected = 23.2m;
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void Test_Buy_4_Book_With_3_Identical_One_Total_Cost_Should_Be_31_dot_2()
+        {
+            var target = new OrderService();
+            var order = new List<Order>
+            {
+                new Order { BookId = 1, Name = "Harry1", Price = 8 },
+                new Order { BookId = 1, Name = "Harry1", Price = 8 },
+                new Order { BookId = 1, Name = "Harry1", Price = 8 },
+                new Order { BookId = 2, Name = "Harry2", Price = 8 }
+            };
+
+            decimal actual = target.CalculateCost(order);
+            decimal expected = 31.2m;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Test_Buy_4_Book_With_2_pair_Identical_One_Total_Cost_Should_Be_30_dot_4()
+        {
+            var target = new OrderService();
+            var order = new List<Order>
+            {
+                new Order { BookId = 1, Name = "Harry1", Price = 8 },
+                new Order { BookId = 1, Name = "Harry1", Price = 8 },
+                new Order { BookId = 2, Name = "Harry2", Price = 8 },
+                new Order { BookId = 2, Name = "Harry2", Price = 8 }
+            };
+
+            decimal actual = target.CalculateCost(order);
+            decimal expected = 30.4m;
+
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }
