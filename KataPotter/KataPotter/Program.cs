@@ -10,6 +10,7 @@ namespace KataPotter
     {
         static void Main(string[] args)
         {
+            Console.ReadLine();
         }
     }
 }
